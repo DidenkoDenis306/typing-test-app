@@ -1,26 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Header } from './components/Header';
+import { TimeButtons } from './components/TimeButtons';
+import { Words } from './components/Words';
+import { CountdownTimer } from './components/CountdownTimer';
+import { RestartButton } from './components/RestartButton';
+import { Result } from './components/Result';
 
-function App() {
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <TimeButtons />
+      <CountdownTimer 
+        timeLeft={30}
+      />
+      <Words />
+      <RestartButton 
+        clName="mx-auto mt-10 text-slate-500"
+        onRestart={() => null}
+      />
+      <Result 
+        className="mt-10"
+        errors={10}
+        accuracyPercentage={100}
+        total={200}
+      />
+    </>
   );
-}
-
-export default App;
+};
