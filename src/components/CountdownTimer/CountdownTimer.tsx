@@ -6,8 +6,8 @@ interface Props {
 
 export const CountdownTimer: FC<Props>  = ({ timeLeft }) => {
   return (
-    <h2 className="text-yellow-400 font-medium">
-      Time: {timeLeft}
+    <h2 className="text-green-500 font-semibold text-5xl text-center mt-20">
+      {timeLeft}
     </h2>
   );
 };

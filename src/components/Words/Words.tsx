@@ -1,13 +1,12 @@
-/* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
-import { generate } from 'random-words';
+import { FC } from 'react';
 
-const words: string = generate({ exactly: 20, join: ' ' });
+interface Props {
+  words: string;
+}
 
-
-export const Words = () => {
+export const Words: FC<Props> = ({ words }) => {
   return (
-    <div className="text-4xl text-center text-slate-500">
+    <div className=" text-slate-500">
       {words}
     </div>
   );
