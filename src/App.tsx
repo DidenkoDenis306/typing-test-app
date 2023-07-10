@@ -10,12 +10,14 @@ import { useEngine } from './hooks/useEngine';
 import { calculateAccuracyPercentage } from './utils/helpers';
 import { WordsContainer } from './components/WordsContainer';
 
+export const time = 30;
+
 export const App = () => {
-  const { words, timeLeft, typed, errors, restart, totalTyped } = useEngine(40, 10);
+  const { state, words, timeLeft, typed, errors, restart, totalTyped } = useEngine(40, time);
 
   return (
     <>
-      <div className="hidden">
+      <div>
         <Header />
         <CountdownTimer 
           timeLeft={timeLeft}
@@ -35,11 +37,12 @@ export const App = () => {
       </div>
 
       <Result 
-        className="mt-10"
-        state={'finish'}
+        className="m-auto"
+        state={state}
         errors={errors}
         accuracyPercentage={calculateAccuracyPercentage(errors, totalTyped)}
         total={totalTyped}
+        onRestart={restart}
       />
     </>
   );
