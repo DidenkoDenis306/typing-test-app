@@ -5,7 +5,6 @@ import  { motion } from 'framer-motion';
 import { formatPercentage } from '../../utils/helpers';
 import { State } from '../../hooks/useEngine';
 import CloseIcon from '@mui/icons-material/Close';
-import { time } from '../../App';
 
 interface Props {
   state: State;
@@ -14,6 +13,7 @@ interface Props {
   total: number;
   className?: string;
   onRestart: () => void;
+  time: number;
 }
 
 export const Result: FC<Props> = ({
@@ -23,6 +23,7 @@ export const Result: FC<Props> = ({
   total,
   className,
   onRestart,
+  time,
 }) => {
   const initial = { opacity: 0 };
   const animate = { opacity: 1 };
