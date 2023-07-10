@@ -1,5 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { generate } from 'random-words';
 
 const generateWords = (count: number) => {
@@ -8,6 +8,10 @@ const generateWords = (count: number) => {
 
 export const useWords = (count: number) => {
   const [words, setWords] = useState<string>(generateWords(count));
+
+  useEffect(() => {
+    setWords(generateWords(count));
+  }, [count]);
 
   const updateWords = useCallback(() => {
     setWords(generateWords(count));

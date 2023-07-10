@@ -63,7 +63,7 @@ export const Result: FC<Props> = ({
         </motion.div>
 
         <motion.div
-          className="text-red-500  text-3xl"
+          className="text-red-500 font-semibold text-3xl"
           initial={initial}
           animate={animate}
           transition={{ ...duration, delay: 1 }}  

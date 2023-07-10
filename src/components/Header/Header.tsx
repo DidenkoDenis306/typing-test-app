@@ -2,8 +2,8 @@ import { FC } from 'react';
 
 export const Header: FC = () => {
   return (
-    <div className="text-4xl text-center text-green-500">
-      Typing Test
+    <div className="text-6xl text-center mt-24 text-green-500">
+      React Typing
     </div>
   );
 };

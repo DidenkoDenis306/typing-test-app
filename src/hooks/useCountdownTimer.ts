@@ -11,6 +11,10 @@ export const useCountdownTimer = (seconds: number) => {
   const [timeLeft, setTimeLeft] = useState(seconds);
   const intervalRef = useRef<NodeJS.Timer | null>(null);
 
+  useEffect(() => {
+    setTimeLeft(seconds);
+  }, [seconds]);
+
   const startCountdown = useCallback(() => {
     console.log('starting countdown...');
 

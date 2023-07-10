@@ -4,6 +4,6 @@
 
 @layer base {
   body {
-    @apply bg-slate-200 min-h-screen grid place-items-center tracking-wider; 
+    @apply bg-slate-100 min-h-screen tracking-wider; 
   }
 }

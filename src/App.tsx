@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable max-len */
 /* eslint-disable import/no-extraneous-dependencies */
 import { useState } from 'react';
@@ -10,29 +11,35 @@ import { UserTypings } from './components/UserTypings';
 import { useEngine } from './hooks/useEngine';
 import { calculateAccuracyPercentage } from './utils/helpers';
 import { WordsContainer } from './components/WordsContainer';
+import cn from 'classnames';
+
 
 const timeArr = [15, 30, 60];
 
 export const App = () => {
   const [time, setTime] = useState<number>(30);
 
-  const wos = time * 3;
+  const wordsAmount = time * 2;
 
-  const { state, words, timeLeft, typed, errors, restart, totalTyped } = useEngine(wos, time);
+  const { state, words, timeLeft, typed, errors, restart, totalTyped } = useEngine(wordsAmount, time);
 
   return (
     <>
       <div>
         <Header />
 
-        <div>
+        <div className="ml-96 mt-12 w-80 flex justify-around border-green-600 border-2 rounded-lg">
           {timeArr.map(t => (
             <button
-              className="w-8 m-2 border-blue-300 border-2"
+              className={cn('box-border h-12 grow text-2xl hover:bg-green-600 hover:text-slate-100 transition duration-300', {
+                'bg-green-600 text-slate-100': t === time,
+              })}
               key={t}
               onClick={() => {
-                setTime(t);
-                restart();
+                if (t !== time) {
+                  setTime(t);
+                  restart();
+                }
               }}
             >
               {t}
@@ -40,13 +47,13 @@ export const App = () => {
           ))}
         </div>
 
-        <CountdownTimer 
+        <CountdownTimer
           timeLeft={timeLeft}
         />
         <WordsContainer>
           <Words words={words} />
           <UserTypings
-            className="absolute inset-0 p-32"
+            className="absolute inset-0 pb-0 p-32 "
             userInput={typed}
             words={words}
           />

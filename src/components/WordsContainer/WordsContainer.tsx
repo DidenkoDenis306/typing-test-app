@@ -7,7 +7,7 @@ interface Props {
 
 export const WordsContainer: React.FC<Props> = ({ children }) => {
   return (
-    <div className="relative text-3xl max-x-xl leading-relaxed whitespace-break-spaces mt-3 p-32">
+    <div className="relative text-2xl max-x-xl leading-relaxed break-all mt-3 p-32 pb-12">
       {children}
     </div>
   );
