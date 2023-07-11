@@ -4,6 +4,10 @@
 
 @layer base {
   body {
-    @apply bg-timberwolf max-h-screen tracking-wider; 
+    @apply max-h-screen tracking-wider; 
   }
 }
+
+body {
+  background-color: #dad7cd;
+};
