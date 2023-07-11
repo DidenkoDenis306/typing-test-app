@@ -4,6 +4,6 @@
 
 @layer base {
   body {
-    @apply bg-slate-100 min-h-screen tracking-wider; 
+    @apply bg-timberwolf max-h-screen tracking-wider; 
   }
 }

@@ -28,32 +28,38 @@ export const App = () => {
       <div>
         <Header />
 
-        <div className="ml-96 mt-12 w-80 flex justify-around border-green-600 border-2 rounded-lg">
-          {timeArr.map(t => (
-            <button
-              className={cn('box-border h-12 grow text-2xl hover:bg-green-600 hover:text-slate-100 transition duration-300', {
-                'bg-green-600 text-slate-100': t === time,
-              })}
-              key={t}
-              onClick={() => {
-                if (t !== time) {
-                  setTime(t);
-                  restart();
-                }
-              }}
-            >
-              {t}
-            </button>
-          ))}
+        <div className="flex justify-between items-center px-48 h-12 mb-8">
+          <CountdownTimer
+            timeLeft={timeLeft}
+          />
+
+          <div className="flex ml-48 mt-12 w-48 justify-around border-fern border-2 rounded-2xl">
+
+            {timeArr.map(t => (
+              <button
+                className={cn('box-border rounded-xl h-8 grow text-lg text-brunswick',
+                  'font-semibold hover:text-sage transition duration-300', {
+                    'bg-fern text-timberwolf hover:text-slate-200': t === time,
+                  })}
+                key={t}
+                onClick={() => {
+                  if (t !== time) {
+                    setTime(t);
+                    restart();
+                  }
+                }}
+              >
+                {t}
+              </button>
+            ))}
+          </div>
         </div>
 
-        <CountdownTimer
-          timeLeft={timeLeft}
-        />
+
         <WordsContainer>
           <Words words={words} />
           <UserTypings
-            className="absolute inset-0 pb-0 p-32 "
+            className="absolute inset-0 pb-0 p-48 pt-0"
             userInput={typed}
             words={words}
           />
